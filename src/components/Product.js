@@ -43,7 +43,7 @@ export default function Courses({ token }) {
     console.log("Sss");
     try {
       const result = await axios.post(
-        "http://https://userjamelah.herokuapp.com/addProduct",
+        "https://userjamelah.herokuapp.com/addProduct",
         {
           name: name,
           price: price,
