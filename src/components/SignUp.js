@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom";
 import axios from "axios";
-import"./Singup.css"
+import "./Singup.css";
 export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -19,55 +19,62 @@ export default function SignUp() {
   };
 
   const addUser = async () => {
-      // console.log({
-      //   name: name,
-      //   email: email,
-      //   password: password,
-      // });
+    // console.log({
+    //   name: name,
+    //   email: email,
+    //   password: password,
+    // });
     try {
-      const response = await axios.post("https://userjamelah.herokuapp.com//signUp", {
-      name: name,
-      email: email,
-      password: password,
-    });
-    console.log(response);
-    if (response.status === 201){
-        history.push("/login")
-    }
+      const response = await axios.post(
+        "https://userjamelah.herokuapp.com/signUp",
+        {
+          name: name,
+          email: email,
+          password: password,
+        }
+      );
+      console.log(response);
+      if (response.status === 201) {
+        history.push("/login");
+      }
     } catch (error) {
       console.log("err");
     }
   };
   return (
     <div id="maindeev">
-    <div className="signup">
-      <input id= "inputup"
-        onChange={(e) => {
-          changeName(e);
-        }}
-        placeholder="enter your name"
-      />
-      <input id="input11"
-        onChange={(e) => {
-          changeEmail(e);
-        }}
-        placeholder="enter your email"
-      />
-      <input id="input12"
-        onChange={(e) => {
-          changePassword(e);
-        }}
-        type="password"
-        placeholder="enter your password"
-      />
-      <button id="btn2"
-        onClick={() => {
-          addUser();
-        }}
-      >
-        sign up
-      </button>
-    </div>
+      <div className="signup">
+        <input
+          id="inputup"
+          onChange={(e) => {
+            changeName(e);
+          }}
+          placeholder="enter your name"
+        />
+        <input
+          id="input11"
+          onChange={(e) => {
+            changeEmail(e);
+          }}
+          placeholder="enter your email"
+        />
+        <input
+          id="input12"
+          onChange={(e) => {
+            changePassword(e);
+          }}
+          type="password"
+          placeholder="enter your password"
+        />
+        <button
+          id="btn2"
+          onClick={() => {
+            addUser();
+          }}
+        >
+          sign up
+        </button>
+      </div>
     </div>
   );
 }
