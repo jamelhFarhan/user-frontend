@@ -66,7 +66,7 @@ export default function Courses({ token }) {
   const deletePro = async (id, index) => {
     try {
       const deletedCourse = await axios.delete(
-        `http://https://userjamelah.herokuapp.com/deletProduct/${id}`,
+        `https://userjamelah.herokuapp.com/deletProduct/${id}`,
         {
           headers: { authorization: "Bearer " + token },
         }
@@ -98,7 +98,7 @@ export default function Courses({ token }) {
   const fav = async (id) => {
     try {
       const result = await axios.post(
-        `http:https://userjamelah.herokuapp.com//like/${id}`,
+        `https://userjamelah.herokuapp.com//like/${id}`,
         {},
         {
           headers: { authorization: "Bearer " + token },
